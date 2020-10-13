@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "hewo",
+  "version": "${version}",
+
+  "name": "Hewo!!",
+  "description": "An extremely concerning mod that owofies chat messages, based off of a port of the @zuzak/owo algorithm.",
+  "authors": [
+    "Arc'blroth"
+  ],
+
+  "license": "MIT",
+  "icon": "assets/hewo/icon.png",
+
+  "environment": "*",
+
+  "mixins": [
+    "hewo.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.8",
+    "minecraft": "1.16.x"
+  },
+
+  "suggests": {
+    "okzoomer": "*",
+    "libowo": "*"
+  }
+
+}
