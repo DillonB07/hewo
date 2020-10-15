@@ -14,6 +14,12 @@
 
   "environment": "*",
 
+  "entrypoints": {
+    "main": [
+      "ai.arcblroth.fabric.hewo.Hewo"
+    ]
+  },
+
   "mixins": [
     "hewo.mixins.json"
   ],
