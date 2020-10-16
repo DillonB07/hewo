@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 
 public interface HewoAPI {
 
-    default HewoAPI getInstance() {
+    static HewoAPI getInstance() {
         return HewoAPIImpl.HEWO;
     }
 

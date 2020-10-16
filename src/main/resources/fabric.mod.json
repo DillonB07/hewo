@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "ai.arcblroth.fabric.hewo.Hewo"
+    ],
+    "modmenu": [
+      "ai.arcblroth.fabric.hewo.config.HewoConfigScreen"
     ]
   },
 

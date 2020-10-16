@@ -20,7 +20,7 @@ public class HewoAPIImpl implements HewoAPI {
     }
 
     public boolean shouldOwo() {
-        return ThreadLocalRandom.current().nextGaussian() < chances.stream().map(Supplier::get).max(Double::compareTo).orElse(-1D);
+        return ThreadLocalRandom.current().nextDouble() < chances.stream().map(Supplier::get).max(Double::compareTo).orElse(-1D);
     }
 
 }
