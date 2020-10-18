@@ -1,9 +1,9 @@
 package ai.arcblroth.fabric.hewo.command;
 
-import ai.arcblroth.fabric.hewo.Owo;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
+import maow.owo.OwO;
 import net.minecraft.SharedConstants;
 import net.minecraft.entity.Entity;
 import net.minecraft.network.MessageType;
@@ -27,7 +27,7 @@ public class OwoCommand {
                 }
             }
 
-            message = Owo.owo(message);
+            message = OwO.INSTANCE.owo(message, 256);
 
             Entity entity = commandContext.getSource().getEntity();
             if (entity == null) {

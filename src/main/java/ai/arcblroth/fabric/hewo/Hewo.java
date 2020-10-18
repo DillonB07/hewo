@@ -3,6 +3,7 @@ package ai.arcblroth.fabric.hewo;
 import ai.arcblroth.fabric.hewo.api.HewoAPI;
 import ai.arcblroth.fabric.hewo.command.OwoCommand;
 import ai.arcblroth.fabric.hewo.config.HewoConfig;
+import maow.owo.OwO;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
@@ -18,7 +19,7 @@ public class Hewo implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        LOGGER.info(Owo.owo("Loading furry speak..."));
+        LOGGER.info(OwO.INSTANCE.owo("Loading furry speak..."));
 
         AutoConfig.register(HewoConfig.class, GsonConfigSerializer::new);
         CONFIG = AutoConfig.getConfigHolder(HewoConfig.class).getConfig();

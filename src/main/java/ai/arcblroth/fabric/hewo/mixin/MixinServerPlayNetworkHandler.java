@@ -1,7 +1,7 @@
 package ai.arcblroth.fabric.hewo.mixin;
 
 import ai.arcblroth.fabric.hewo.HewoAPIImpl;
-import ai.arcblroth.fabric.hewo.Owo;
+import maow.owo.OwO;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -19,7 +19,7 @@ public class MixinServerPlayNetworkHandler {
                 TranslatableText translatableText = (TranslatableText) text;
                 Object[] args = translatableText.getArgs();
                 if (args.length >= 2) {
-                    args[1] = Owo.owo(args[1].toString());
+                    args[1] = OwO.INSTANCE.owo(args[1].toString(), 256);
                 }
             }
         }
