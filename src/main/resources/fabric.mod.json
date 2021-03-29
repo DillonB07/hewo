@@ -6,7 +6,8 @@
   "name": "Hewo!!",
   "description": "An extremely concerning mod that owofies chat messages, based off of a port of the @zuzak/owo algorithm.",
   "authors": [
-    "Arc'blroth"
+    "Arc'blroth",
+    "Maowcraft"
   ],
 
   "license": "MIT",
@@ -17,6 +18,9 @@
   "entrypoints": {
     "main": [
       "ai.arcblroth.fabric.hewo.Hewo"
+    ],
+    "client": [
+      "ai.arcblroth.fabric.hewo.client.HewoClient"
     ],
     "modmenu": [
       "ai.arcblroth.fabric.hewo.config.HewoConfigScreen"

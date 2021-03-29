@@ -1,5 +1,7 @@
 {
   "text.autoconfig.hewo.title": "Hewo Config",
   "text.autoconfig.hewo.option.hewoChance": "Chat Owofication Chance",
-  "text.autoconfig.hewo.option.hewoChance.@Tooltip": "Percent of out 100 that a random message in chat will be owoified."
+  "text.autoconfig.hewo.option.hewoChance.@Tooltip": "Percent of out 100 that a random message in chat will be owoified.",
+  "text.autoconfig.hewo.option.owoPrefixes": "Owo Prefixes",
+  "text.autoconfig.hewo.option.owoSuffixes": "Owo Suffixes"
 }
