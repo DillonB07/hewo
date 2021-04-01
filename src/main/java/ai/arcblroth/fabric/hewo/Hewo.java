@@ -57,10 +57,10 @@ public class Hewo implements ModInitializer {
             OwO.INSTANCE.getSuffixes().addAll(suffixes);
             return ActionResult.SUCCESS;
         };
-        configHolder.registerLoadListener(serializeListener::apply);
         configHolder.registerSaveListener(serializeListener::apply);
 
         CONFIG = AutoConfig.getConfigHolder(HewoConfig.class).getConfig();
+        serializeListener.apply(configHolder, CONFIG);
         HewoAPI.getInstance().addOwoProbabilityModifier(() -> CONFIG.hewoChance == 0 ? -1 : CONFIG.hewoChance / 100D);
 
         CommandRegistrationCallback.EVENT.register(((commandDispatcher, dedicated) -> OwoCommand.register(commandDispatcher)));

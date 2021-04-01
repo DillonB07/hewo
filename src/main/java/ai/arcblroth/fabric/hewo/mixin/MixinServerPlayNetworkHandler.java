@@ -17,9 +17,11 @@ public class MixinServerPlayNetworkHandler {
         if(HewoAPIImpl.HEWO.shouldOwo()) {
             if (text instanceof TranslatableText) {
                 TranslatableText translatableText = (TranslatableText) text;
-                Object[] args = translatableText.getArgs();
-                if (args.length >= 2) {
-                    args[1] = OwO.INSTANCE.owo(args[1].toString(), 256);
+                if(translatableText.getKey().equals("chat.type.text")) {
+                    Object[] args = translatableText.getArgs();
+                    if (args.length >= 2) {
+                        args[1] = OwO.INSTANCE.owo(args[1].toString(), 256);
+                    }
                 }
             }
         }
