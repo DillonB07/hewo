@@ -35,7 +35,7 @@ public class OwoCommand {
             }
 
             Text text = new TranslatableText("chat.type.text", entity.getDisplayName(), message);
-            commandContext.getSource().getMinecraftServer().getPlayerManager().broadcastChatMessage(text, MessageType.CHAT, entity.getUuid());
+            commandContext.getSource().getServer().getPlayerManager().broadcast(text, MessageType.CHAT, entity.getUuid());
 
             return 1;
         })));

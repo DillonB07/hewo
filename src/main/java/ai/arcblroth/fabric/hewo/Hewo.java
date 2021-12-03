@@ -47,14 +47,10 @@ public class Hewo implements ModInitializer {
         ConfigHolder<HewoConfig> configHolder = AutoConfig.getConfigHolder(HewoConfig.class);
         BiFunction<ConfigHolder<HewoConfig>, HewoConfig, ActionResult> serializeListener = (holder, config) -> {
             // TODO: this is not thread safe
-            HashSet<String> prefixes = new HashSet<>(OwO.INSTANCE.getPrefixes());
-            HashSet<String> suffixes = new HashSet<>(OwO.INSTANCE.getSuffixes());
-            prefixes.addAll(config.owoPrefixes);
-            suffixes.addAll(config.owoSuffixes);
             OwO.INSTANCE.getPrefixes().clear();
             OwO.INSTANCE.getSuffixes().clear();
-            OwO.INSTANCE.getPrefixes().addAll(prefixes);
-            OwO.INSTANCE.getSuffixes().addAll(suffixes);
+            OwO.INSTANCE.getPrefixes().addAll(config.owoPrefixes);
+            OwO.INSTANCE.getSuffixes().addAll(config.owoSuffixes);
             return ActionResult.SUCCESS;
         };
         configHolder.registerLoadListener(serializeListener::apply);

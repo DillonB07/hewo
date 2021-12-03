@@ -7,7 +7,7 @@
   "description": "An extremely concerning mod that owofies chat messages, based off of a port of the @zuzak/owo algorithm.",
   "authors": [
     "Arc'blroth",
-    "Maowcraft"
+    "MaowImpl"
   ],
 
   "license": "MIT",
@@ -33,7 +33,7 @@
 
   "depends": {
     "fabricloader": ">=0.7.8",
-    "minecraft": "1.17.x"
+    "minecraft": "1.18.x"
   },
 
   "suggests": {
