@@ -1,23 +1,22 @@
 package ai.arcblroth.fabric.hewo.command;
 
+import ai.arcblroth.fabric.hewo.Hewo;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
-import maow.owo.OwO;
+import org.apache.commons.lang3.StringUtils;
 import net.minecraft.SharedConstants;
 import net.minecraft.entity.Entity;
-import net.minecraft.network.MessageType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
-import org.apache.commons.lang3.StringUtils;
 
 public class OwoCommand {
 
-    private static final SimpleCommandExceptionType INVALID_MESSAGE_EXCEPTION = new SimpleCommandExceptionType(new TranslatableText("multiplayer.disconnect.illegal_characters"));
+    private static final SimpleCommandExceptionType INVALID_MESSAGE_EXCEPTION = new SimpleCommandExceptionType(Text.translatable("multiplayer.disconnect.illegal_characters"));
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
+        // TODO: send decorated signed messages to players with hewo installed client-side
         dispatcher.register(CommandManager.literal("owo").then(CommandManager.argument("message", StringArgumentType.greedyString()).executes((commandContext) -> {
             String message = StringUtils.normalizeSpace(StringArgumentType.getString(commandContext, "message"));
 
@@ -27,15 +26,15 @@ public class OwoCommand {
                 }
             }
 
-            message = OwO.INSTANCE.owo(message, 256);
+            message = Hewo.owoify(message);
 
             Entity entity = commandContext.getSource().getEntity();
             if (entity == null) {
                 return 0;
             }
 
-            Text text = new TranslatableText("chat.type.text", entity.getDisplayName(), message);
-            commandContext.getSource().getServer().getPlayerManager().broadcast(text, MessageType.CHAT, entity.getUuid());
+            Text text = Text.translatable("chat.type.text", entity.getDisplayName(), message);
+            commandContext.getSource().getServer().getPlayerManager().broadcast(text, false);
 
             return 1;
         })));

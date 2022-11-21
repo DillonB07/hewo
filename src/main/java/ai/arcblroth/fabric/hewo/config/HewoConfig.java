@@ -15,6 +15,9 @@ public class HewoConfig implements ConfigData {
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int hewoChance = 5;
 
+    @ConfigEntry.Gui.Tooltip
+    public boolean useAffixes = true;
+
     public List<String> owoPrefixes = new ArrayList<>(Hewo.DEFAULT_PREFIXES);
     public List<String> owoSuffixes = new ArrayList<>(Hewo.DEFAULT_SUFFIXES);
 

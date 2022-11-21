@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.10-SNAPSHOT'
+	id 'fabric-loom' version '1.0-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -13,6 +13,7 @@ group = project.maven_group
 repositories {
 	maven { url 'https://maven.shedaniel.me' }
 	maven { url 'https://maven.terraformersmc.com/releases/' }
+	mavenLocal()
 	maven { url 'https://jitpack.io' }
 }
 
@@ -35,8 +36,8 @@ dependencies {
 		exclude group: "net.fabricmc.fabric-api"
 	}
 
-	implementation "com.github.maowcraft:owo:${project.owo_version}"
-	include "com.github.maowcraft:owo:${project.owo_version}"
+	implementation "io.github.maowimpl:owo:${project.owo_version}"
+	include "io.github.maowimpl:owo:${project.owo_version}"
 }
 
 processResources {
@@ -60,6 +61,10 @@ java {
 
 jar {
 	from "LICENSE"
+}
+
+runClient {
+	jvmArgs = ["-Dmixin.hotSwap=true"]
 }
 
 // configure the maven publication

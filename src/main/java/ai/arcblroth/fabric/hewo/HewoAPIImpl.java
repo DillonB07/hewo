@@ -1,11 +1,12 @@
 package ai.arcblroth.fabric.hewo;
 
 import ai.arcblroth.fabric.hewo.api.HewoAPI;
-import maow.owo.OwO;
-import maow.owo.util.json.Substitution;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Supplier;
@@ -27,32 +28,32 @@ public class HewoAPIImpl implements HewoAPI {
         return ThreadLocalRandom.current().nextDouble() < chances.stream().map(Supplier::get).max(Double::compareTo).orElse(-1D);
     }
 
-    public List<Substitution> getSubstitutions() {
-        return OwO.INSTANCE.getSubstitutions();
+    public Map<String, String> getSubstitutions() {
+        return ImmutableMap.copyOf(Hewo.apiSubstitutions);
     }
 
     public List<String> getPrefixes() {
-        return OwO.INSTANCE.getPrefixes();
+        return ImmutableList.copyOf(Hewo.apiPrefixes);
     }
 
     public List<String> getSuffixes() {
-        return OwO.INSTANCE.getSuffixes();
+        return ImmutableList.copyOf(Hewo.apiSuffixes);
     }
 
-    public void addSubstitution(Substitution substitution) {
-        OwO.INSTANCE.addSubstitution(substitution);
+    public void addSubstitution(String original, String substitute) {
+        Hewo.rebuildOwO(() -> Hewo.apiSubstitutions.put(original, substitute));
     }
 
     public void addSubstitution(String original, String substitute, boolean byItself) {
-        OwO.INSTANCE.addSubstitution(original, substitute, byItself);
+        addSubstitution(original, substitute);
     }
 
     public void addPrefix(String prefix) {
-        OwO.INSTANCE.addPrefix(prefix);
+        Hewo.rebuildOwO(() -> Hewo.apiPrefixes.add(prefix));
     }
 
     public void addSuffix(String suffix) {
-        OwO.INSTANCE.addPrefix(suffix);
+        Hewo.rebuildOwO(() -> Hewo.apiSuffixes.add(suffix));
     }
 
 }

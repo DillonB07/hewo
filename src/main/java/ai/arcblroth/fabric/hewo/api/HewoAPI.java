@@ -1,9 +1,9 @@
 package ai.arcblroth.fabric.hewo.api;
 
 import ai.arcblroth.fabric.hewo.HewoAPIImpl;
-import maow.owo.util.json.Substitution;
 
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
 public interface HewoAPI {
@@ -27,7 +27,7 @@ public interface HewoAPI {
      * Gets all {@link maow.owo.util.json.Substitution}s
      * registered on the owofier.
      */
-    public List<Substitution> getSubstitutions();
+    public Map<String, String> getSubstitutions();
 
     /**
      * Gets all prefixes registered on the owofier.
@@ -40,15 +40,15 @@ public interface HewoAPI {
     public List<String> getSuffixes();
 
     /**
-     * Adds a {@link maow.owo.util.json.Substitution}
-     * to the owofier.
+     * Adds a substitution to the owofier.
      */
-    public void addSubstitution(Substitution substitution);
+    public void addSubstitution(String original, String substitute);
 
     /**
-     * Builds a {@link maow.owo.util.json.Substitution}
-     * and adds it to the owoifer.
+     * Adds a substitution it to the owoifer.
+     * @deprecated - artifact of the OwO v1 API
      */
+    @Deprecated(forRemoval = true)
     public void addSubstitution(String original, String substitute, boolean byItself);
 
     /**
