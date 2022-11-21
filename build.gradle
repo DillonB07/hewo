@@ -13,7 +13,6 @@ group = project.maven_group
 repositories {
 	maven { url 'https://maven.shedaniel.me' }
 	maven { url 'https://maven.terraformersmc.com/releases/' }
-	mavenLocal()
 	maven { url 'https://jitpack.io' }
 }
 
@@ -36,8 +35,8 @@ dependencies {
 		exclude group: "net.fabricmc.fabric-api"
 	}
 
-	implementation "io.github.maowimpl:owo:${project.owo_version}"
-	include "io.github.maowimpl:owo:${project.owo_version}"
+	implementation "io.github.arc-blroth:MaowImpl-owo:${project.owo_version}"
+	include "io.github.arc-blroth:MaowImpl-owo:${project.owo_version}"
 }
 
 processResources {
